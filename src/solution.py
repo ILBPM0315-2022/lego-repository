@@ -13,10 +13,16 @@ class Solution(Repository, Queries):
     @staticmethod
     def type_mapper(values: dict[str, any]) -> LegoSet | LegoSet.Minifigure:
         match values:
+            case {"number": _}:
+                lego_set = LegoSet(**values)
+                lego_set.theme = next(
+                    LegoSet.Theme[entry.name]
+                    for entry in LegoSet.Theme
+                    if entry.value == lego_set.theme
+                )
+                return lego_set
             case {"quantity": _}:
                 return LegoSet.Minifigure(**values)
-            case {"number": _}:
-                return LegoSet(**values)
 
     @property
     def entities(self) -> list[LegoSet]:

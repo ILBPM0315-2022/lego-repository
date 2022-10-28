@@ -30,7 +30,7 @@ class LegoSet:
         * STAR_WARS = "Star Wars"
         * CREATOR_EXPERT = "Creator Expert"
         """
-        CITY = "City",
+        CITY = "City"
         HARRY_POTTER = "Harry Potter"
         STAR_WARS = "Star Wars"
         CREATOR_EXPERT = "Creator Expert"
